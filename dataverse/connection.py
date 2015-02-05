@@ -1,8 +1,8 @@
 from lxml import etree
 import requests
 
-from dataverse import Dataverse
-from utils import get_elements
+from .dataverse import Dataverse
+from .utils import get_elements
 
 
 class Connection(object):

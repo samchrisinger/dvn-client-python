@@ -1,13 +1,13 @@
 import os
-import StringIO
+from io import StringIO
 from zipfile import ZipFile
 
 from lxml import etree
 import requests
 
-from file import DataverseFile
-from sword import SWORD_BOOTSTRAP
-from utils import get_element, get_elements, DataverseException, \
+from .file import DataverseFile
+from .sword import SWORD_BOOTSTRAP
+from .utils import get_element, get_elements, DataverseException, \
     get_files_in_path, add_field
 
 
@@ -29,7 +29,7 @@ class Study(object):
         self._entry = etree.XML(entry) if isinstance(entry, str) else entry
 
         # Updates sword entry from keyword arguments
-        for key, value in kwargs.iteritems():
+        for key, value in kwargs.items():
             if isinstance(value, list):
                 for item in value:
                     add_field(self._entry, key, item, 'dcterms')

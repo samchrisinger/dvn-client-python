@@ -1,6 +1,6 @@
-import urlparse
+from urllib.parse import urlparse
 
-from utils import DataverseException, get_element, sanitize
+from .utils import DataverseException, get_element, sanitize
 
 
 class DataverseFile(object):

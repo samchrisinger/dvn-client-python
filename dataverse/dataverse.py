@@ -1,7 +1,7 @@
 import requests
 
-from study import Study
-from utils import get_element, get_elements, DataverseException, sanitize
+from .study import Study
+from .utils import get_element, get_elements, DataverseException, sanitize
 
 
 class Dataverse(object):

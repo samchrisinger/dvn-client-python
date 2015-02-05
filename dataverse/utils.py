@@ -3,7 +3,7 @@ import os
 from lxml import etree
 import bleach
 
-from sword import SWORD_NAMESPACE, REPLACEMENT_DICT, UNIQUE_FIELDS
+from .sword import SWORD_NAMESPACE, REPLACEMENT_DICT, UNIQUE_FIELDS
 
 
 class DataverseException(Exception):
@@ -19,8 +19,8 @@ def get_element(root, tag='*', namespace=None, attribute=None, attribute_value=N
 def get_elements(root, tag='*', namespace=None, attribute=None, attribute_value=None):
 
     # If string, convert to etree element
-    if isinstance(root, str):
-        root = etree.XML(root)
+    if isinstance(root, str) or isinstance(root, bytes):
+        root = etree.XML(root)        
 
     namespace = root.nsmap.get(namespace, namespace)
 
